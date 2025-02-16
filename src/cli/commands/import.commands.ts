@@ -1,5 +1,6 @@
 import { Command } from './command.interface.js';
 import { TSVFileReader } from '../shared/libs/file-reader/index.js';
+import { chalkError } from '../shared/libs/chalk/chalk.variables.js';
 
 
 export class ImportCommand implements Command {
@@ -9,6 +10,9 @@ export class ImportCommand implements Command {
 
   public execute(...parameters: string[]): void {
     const [filename] = parameters;
+    if (!filename) {
+      throw new Error(chalkError('Filename is not specified'));
+    }
     const fileReader = new TSVFileReader(filename.trim());
 
     try {
@@ -19,8 +23,8 @@ export class ImportCommand implements Command {
         throw error;
       }
 
-      console.error(`Can not import data from file: ${filename}`);
-      console.error(`Details: ${error.message}`);
+      console.error(chalkError(`Can not import data from file: ${filename}`));
+      console.error(chalkError(`Details: ${error.message}`));
     }
   }
 }
