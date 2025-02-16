@@ -18,7 +18,7 @@ function isPackageJSONConfig(value: unknown): value is PackageJSONConfig {
     value !== null &&
     !Array.isArray(value) &&
     Object.hasOwn(value, 'version')
-  )
+  );
 }
 
 export class VersionCommand implements Command {

@@ -1,8 +1,8 @@
-import { City } from "../../types/cities-type.enum.js";
-import { HousingType } from "../../types/housing-type.enum.js";
-import { Offer } from "../../types/offers.type.js";
-import { FileReader } from "./file-reader.interface.js";
-import { readFileSync } from "node:fs";
+import { readFileSync } from 'node:fs';
+import { City } from '../../types/cities-type.enum.js';
+import { HousingType } from '../../types/housing-type.enum.js';
+import { Offer } from '../../types/offers.type.js';
+import { FileReader } from './file-reader.interface.js';
 
 export class TSVFileReader implements FileReader {
   private rawData = '';

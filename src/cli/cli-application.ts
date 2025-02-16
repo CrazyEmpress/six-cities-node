@@ -1,5 +1,5 @@
-import { CommandParser } from "./command-parser.js";
-import { Command } from "./commands/command.interface.js";
+import { CommandParser } from './command-parser.js';
+import { Command } from './commands/command.interface.js';
 
 type CommandCollection = Record<string, Command>;
 
@@ -23,12 +23,12 @@ export class CLIApplication {
       }
 
       this.commands[command.getName()] = command;
-    })
+    });
   }
 
   private getDefaltCommand(): Command | never {
     if (!this.commands[this.defaultCommand]) {
-      throw new Error(`The default command ${this.defaultCommand} is not registered`)
+      throw new Error(`The default command ${this.defaultCommand} is not registered`);
     }
 
     return this.commands[this.defaultCommand];
@@ -51,6 +51,6 @@ export class CLIApplication {
     const [commandName] = Object.keys(parsedCommand);
     const command = this.getCommand(commandName);
     const commandArguments = parsedCommand[commandName] ?? [];
-    command.execute(...commandArguments)
+    command.execute(...commandArguments);
   }
 }
