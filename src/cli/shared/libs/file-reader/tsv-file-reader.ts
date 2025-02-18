@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import { City } from '../../types/cities-type.enum.js';
 import { HousingType } from '../../types/housing-type.enum.js';
 import { Offer } from '../../types/offers.type.js';
@@ -94,8 +94,8 @@ export class TSVFileReader implements FileReader {
     };
   }
 
-  public read() {
-    this.rawData = readFileSync(this.fileName, { encoding: 'utf-8' });
+  public async read(): Promise<void> {
+    this.rawData = await readFile(this.fileName, { encoding: 'utf-8' });
   }
 
   public toArray(): Offer[] {

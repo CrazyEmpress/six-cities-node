@@ -7,7 +7,7 @@ export class ImportCommand implements Command {
     return '--import';
   }
 
-  public execute(...parameters: string[]): void {
+  public async execute(...parameters: string[]): Promise<void> {
     const [filename] = parameters;
     if (!filename) {
       throw new Error('Filename is not specified');
@@ -15,7 +15,7 @@ export class ImportCommand implements Command {
     const fileReader = new TSVFileReader(filename.trim());
 
     try {
-      fileReader.read();
+      await fileReader.read();
       console.log(fileReader.toArray());
     } catch (error: unknown) {
       if (!(error instanceof Error)) {
