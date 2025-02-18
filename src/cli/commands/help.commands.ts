@@ -14,9 +14,9 @@ export class HelpCommand implements Command {
 
       Команды:
 
-      --version:                   # выводит номер версии
-      --help:                      # печатает этот текст
-      --import <path>:             # импортирует данные из TSV
+      --version:                   # выводит номер версии проекта из package.json
+      --help:                      # печатает данную подсказку
+      --import <path>:             # импортирует данные из TSV файла указанного в <path>
       --generate <n> <path> <url>  # генерирует произвольное количество тестовых данных
     `));
   }
