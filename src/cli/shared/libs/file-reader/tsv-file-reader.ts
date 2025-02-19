@@ -3,6 +3,8 @@ import { City } from '../../types/cities-type.enum.js';
 import { HousingType } from '../../types/housing-type.enum.js';
 import { Offer } from '../../types/offers.type.js';
 import { FileReader } from './file-reader.interface.js';
+import { Goods } from '../../types/goods-type.enum.js';
+import { UserType } from '../../types/user-type.enum.js';
 
 export class TSVFileReader implements FileReader {
   private rawData = '';
@@ -22,7 +24,6 @@ export class TSVFileReader implements FileReader {
       .split('\n')
       .filter((row) => row.trim())
       .map((line) => this.parseLineToOffer(line));
-
   }
 
   private parseLineToOffer(line: string): Offer {
@@ -46,49 +47,42 @@ export class TSVFileReader implements FileReader {
       hostPassword,
       hostAvatarUrl,
       hostType,
-      cityZoom,
       locationCoordinates,
     ] = line.split('\t');
-
-    /** Очистка кавычек в строковых полях */
-    const clean = (str: string) => str.replace(/^"|"$/g, '');
 
     /** Разделение координат на широту и долготу */
     const [locationLatitude, locationLongitude] = locationCoordinates.split(';').map(Number);
 
     return {
-      id: crypto.randomUUID(), // Генерация уникального ID, если его нет в данных
-      title: clean(title),
+      title: title,
       type: type as HousingType,
       price: Number(price),
       city: {
-        name: clean(cityName) as City,
+        name: cityName as City,
         location: {
           latitude: locationLatitude,
           longitude: locationLongitude,
-          zoom: Number(cityZoom),
         },
       },
       location: {
         latitude: locationLatitude,
         longitude: locationLongitude,
-        zoom: Number(cityZoom),
       },
       isFavorite: isFavorite === 'true',
       isPremium: isPremium === 'true',
       rating: Number(rating),
-      previewImage: clean(previewImage),
-      description: clean(description),
+      previewImage: previewImage,
+      description: description,
       bedrooms: Number(bedrooms),
-      goods: clean(goods).split(';'),
+      goods: goods.split(';') as Goods[],
       host: {
-        name: clean(hostName),
-        email: clean(hostEmail),
-        password: clean(hostPassword),
-        avatarUrl: clean(hostAvatarUrl),
-        isPro: hostType === 'pro',
+        name: hostName,
+        email: hostEmail,
+        password: hostPassword,
+        avatarUrl: hostAvatarUrl,
+        hostType: hostType as UserType,
       },
-      images: clean(images).split(';'),
+      images: images.split(';'),
       maxAdults: Number(maxAdults),
       postDate: new Date(postDate),
     };
