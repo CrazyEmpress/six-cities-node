@@ -6,9 +6,9 @@ function bootstrap() {
   const cliApplication = new CLIApplication();
 
   cliApplication.registerCommands([
-    new VersionCommand,
-    new HelpCommand,
-    new ImportCommand,
+    new VersionCommand(),
+    new HelpCommand(),
+    new ImportCommand(),
   ]);
 
   cliApplication.processComand(process.argv);
