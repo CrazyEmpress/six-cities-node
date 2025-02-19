@@ -52,6 +52,9 @@ export class TSVFileReader implements FileReader {
 
     /** Разделение координат на широту и долготу */
     const [locationLatitude, locationLongitude] = locationCoordinates.split(';').map(Number);
+    if (Number.isNaN(new Date(postDate).getTime())) {
+      throw new Error('Post date is not valid');
+    }
 
     return {
       title: title,
