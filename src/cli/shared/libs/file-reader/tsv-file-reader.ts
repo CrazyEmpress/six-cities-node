@@ -8,6 +8,7 @@ import { UserType } from '../../types/user-type.enum.js';
 
 export class TSVFileReader implements FileReader {
   private rawData = '';
+  private readonly SEPARATOR = ';';
 
   constructor(
     private readonly fileName: string,
@@ -51,7 +52,7 @@ export class TSVFileReader implements FileReader {
     ] = line.split('\t');
 
     /** Разделение координат на широту и долготу */
-    const [locationLatitude, locationLongitude] = locationCoordinates.split(';').map(Number);
+    const [locationLatitude, locationLongitude] = locationCoordinates.split(this.SEPARATOR).map(Number);
     if (Number.isNaN(new Date(postDate).getTime())) {
       throw new Error('Post date is not valid');
     }
@@ -77,7 +78,7 @@ export class TSVFileReader implements FileReader {
       previewImage: previewImage,
       description: description,
       bedrooms: Number(bedrooms),
-      goods: goods.split(';') as Goods[],
+      goods: goods.split(this.SEPARATOR) as Goods[],
       host: {
         name: hostName,
         email: hostEmail,
@@ -85,7 +86,7 @@ export class TSVFileReader implements FileReader {
         avatarUrl: hostAvatarUrl,
         hostType: hostType as UserType,
       },
-      images: images.split(';'),
+      images: images.split(this.SEPARATOR),
       maxAdults: Number(maxAdults),
       postDate: new Date(postDate),
     };
