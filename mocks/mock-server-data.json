@@ -1,0 +1,116 @@
+{
+  "api": {
+    "titles": [
+      "Cozy apartment in the heart of Paris",
+      "Modern house in Cologne with a garden",
+      "Luxury hotel room in Amsterdam",
+      "Comfortable room in Brussels near the city center",
+      "Spacious apartment in Hamburg with a view"
+    ],
+    "description": [
+      "A charming apartment located in the historic district of Paris, close to major attractions like the Eiffel Tower and Louvre Museum.",
+      "A spacious modern house with a beautiful garden, perfect for families or groups. Located in a quiet neighborhood.",
+      "A luxurious hotel room in the center of Amsterdam, offering stunning views of the canals and city skyline.",
+      "A cozy and comfortable room located in a quiet area of Brussels, just a short walk from the city center.",
+      "A large and bright apartment with a stunning view of the harbor. Perfect for long stays or business trips."
+    ],
+    "publicationDates": [
+      "2025-01-01T00:00:00.000Z",
+      "2024-09-25T00:00:00.000Z",
+      "2025-02-05T00:00:00.000Z",
+      "2025-01-30T00:00:00.000Z",
+      "2025-02-10T00:00:00.000Z"
+    ],
+    "cities": [
+      "Paris",
+      "Cologne",
+      "Amsterdam",
+      "Brussels",
+      "Hamburg"
+    ],
+    "previewImages": [
+      "https://example.com/images/preview-1.jpg",
+      "https://example.com/images/preview-2.jpg",
+      "https://example.com/images/preview-3.jpg",
+      "https://example.com/images/preview-4.jpg",
+      "https://example.com/images/preview-5.jpg"
+    ],
+    "images": [
+      "https://example.com/images/image_1.jpg",
+      "https://example.com/images/image_2.jpg",
+      "https://example.com/images/image_3.jpg",
+      "https://example.com/images/image_4.jpg",
+      "https://example.com/images/image_5.jpg",
+      "https://example.com/images/image_6.jpg"
+    ],
+    "isPremium": [
+      true,
+      false
+    ],
+    "isFavorite": [
+      true,
+      false
+    ],
+    "types": [
+      "apartment",
+      "house",
+      "room",
+      "hotel"
+    ],
+    "goods": [
+      "Breakfast",
+      "Air conditioning",
+      "Laptop friendly workspace",
+      "Baby seat",
+      "Washer",
+      "Towels",
+      "Fridge"
+    ],
+    "hostNames": [
+      "David",
+      "Antony",
+      "Samantha",
+      "John",
+      "Emily"
+    ],
+    "hostEmails": [
+      "david.k@inbox.com",
+      "antony.smith@example.com",
+      "samanthadoglover@gmail.com",
+      "john.doe@example.com",
+      "emily.j@inbox.com"
+    ],
+    "hostAvatars": [
+      "avatar-1.jpg",
+      "avatar-2.jpg",
+      "avatar-3.jpg",
+      "avatar-4.jpg",
+      "avatar-5.jpg"
+    ],
+    "hostPasswords": [
+      "12345",
+      "mypass1111",
+      "foxanddogs",
+      "david3228",
+      "samanthadoglover"
+    ],
+    "hostTypes": [
+      "обычный",
+      "pro"
+    ],
+    "latitude": [
+      "48.85661",
+      "50.938361",
+      "52.370216",
+      "50.846557",
+      "53.550341"
+    ],
+    "longitude": [
+      "2.351499",
+      "6.959974",
+      "4.895168",
+      "4.351697",
+      "10.000654"
+    ]
+  }
+}
