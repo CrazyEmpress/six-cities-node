@@ -9,3 +9,6 @@
 .DS_Store
 coverage
 *.log
+mocks/new-mock-file.tsv
+mocks/mock-data.tsv
+mocks/mock-server-data.json
