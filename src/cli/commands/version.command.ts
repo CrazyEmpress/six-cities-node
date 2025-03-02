@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 import { Command } from './command.interface.js';
+import { getErrorMessage } from '../../shared/helpers/common.js';
 
 type PackageJSONConfig = {
   version: string;
@@ -43,9 +44,7 @@ export class VersionCommand implements Command {
     } catch (error: unknown) {
       console.error('Failed to get version');
 
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      }
+      getErrorMessage(error);
     }
   }
 }
