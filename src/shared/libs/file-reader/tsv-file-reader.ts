@@ -1,18 +1,22 @@
-import { readFile } from 'node:fs/promises';
+import EventEmitter from 'node:events';
+
+import { FileReader } from './file-reader.interface.js';
+
 import { City } from '../../types/cities-type.enum.js';
 import { HousingType } from '../../types/housing-type.enum.js';
 import { Offer } from '../../types/offers.type.js';
-import { FileReader } from './file-reader.interface.js';
 import { Goods } from '../../types/goods-type.enum.js';
 import { UserType } from '../../types/user-type.enum.js';
 
-export class TSVFileReader implements FileReader {
+export class TSVFileReader extends EventEmitter implements FileReader {
   private rawData = '';
   private readonly SEPARATOR = ';';
 
   constructor(
     private readonly fileName: string,
-  ) { }
+  ) {
+    super();
+  }
 
   private validateRawData(): void {
     if (!this.rawData) {
@@ -93,7 +97,7 @@ export class TSVFileReader implements FileReader {
   }
 
   public async read(): Promise<void> {
-    this.rawData = await readFile(this.fileName, { encoding: 'utf-8' });
+
   }
 
   public toArray(): Offer[] {
