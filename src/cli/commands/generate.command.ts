@@ -28,6 +28,14 @@ export class GenerateCommand implements Command {
     const [rowsCount, filePath, serverUrl] = parameters;
     const count = Number.parseInt(rowsCount, this.RADIX);
 
+    if (!filePath) {
+      throw new Error('File path is not specified');
+    }
+
+    if (!serverUrl) {
+      throw new Error('Server URL is not specified');
+    }
+
     try {
       await this.load(serverUrl);
       await this.write(filePath, count);
