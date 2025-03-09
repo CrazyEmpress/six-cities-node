@@ -6,3 +6,4 @@ export { Location } from './location.type.js';
 export { MockServerData } from './mock-server-data.type.js';
 export { Offer } from './offers.type.js';
 export { UserType } from './user-type.enum.js';
+export { Component } from './component.enum.js';
