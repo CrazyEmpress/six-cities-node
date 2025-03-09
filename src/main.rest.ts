@@ -9,9 +9,9 @@ import { Component } from './shared/types/index.js';
 
 async function bootstrap() {
   const container = new Container();
-  container.bind<RestApplication>(Component.RestApplication).to(RestApplication);
-  container.bind<Logger>(Component.Logger).to(PinoLogger);
-  container.bind<Config<RestSchema>>(Component.Config).to(RestConfig);
+  container.bind<RestApplication>(Component.RestApplication).to(RestApplication).inRequestScope();
+  container.bind<Logger>(Component.Logger).to(PinoLogger).inRequestScope();
+  container.bind<Config<RestSchema>>(Component.Config).to(RestConfig).inRequestScope();
 
   const application = container.get<RestApplication>(Component.RestApplication);
   await application.init();
