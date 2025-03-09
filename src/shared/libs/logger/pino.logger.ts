@@ -6,6 +6,9 @@ import { getCurrentModuleDirectoryPath } from '../../helpers/file-system.js';
 
 import { resolve } from 'node:path';
 
+import { injectable } from 'inversify';
+
+@injectable()
 export class PinoLogger implements Logger {
   private readonly logger: PinoInstance;
 
